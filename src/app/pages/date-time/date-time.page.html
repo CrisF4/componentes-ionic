@@ -1,0 +1,71 @@
+<app-header titulo="Date Time"></app-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+
+    <ion-list-header>
+      <ion-label>Datos de nacimiento</ion-label>
+    </ion-list-header>
+
+    <ion-item>
+      <ion-label>Fecha de nacimiento</ion-label>
+                    <!-- .toISOString() sirve para convertir la fecha a un formato compatible con el ion-datetime -->
+      <ion-datetime [value]="fechaNaci.toISOString()" display-format="YYYY-MM-DD" (ionChange)="cambioFecha($event)"></ion-datetime>
+    </ion-item>
+
+    <ion-list-header>
+      <ion-label>Restricciones</ion-label>
+    </ion-list-header>
+
+    <ion-item>
+      <ion-label>Min & Max</ion-label>
+      <ion-datetime  display-format="YYYY-MM-DD" min="2000-01-01" max="2025-12-31"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Años</ion-label>
+      <ion-datetime  display-format="YYYY-MM-DD" min="2000" max="2025" presentation="year"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Años</ion-label>
+      <ion-datetime  display-format="YYYY-MM-DD" min="2000-01" max="2025-12" presentation="month-year"></ion-datetime>
+    </ion-item>
+
+    <!-- <ion-item>
+      <ion-label>Custom Options</ion-label>
+      Caracteristica deprecada: botones personalizados
+      <ion-datetime [pickerOptions]="customPickerOptions"></ion-datetime>
+    </ion-item> -->
+
+    <!-- Ahora se utilizan o activan los botones de forma directa en el ion-datetime -->
+    <ion-item>
+      <ion-label>Botones de confirmación</ion-label>
+      <ion-datetime [showDefaultButtons]="true" doneText="Hecho" cancelText="Cancelar"
+                    ></ion-datetime>
+    </ion-item>
+
+    <!-- Se tendra que implementar un accionador o feedback de botones mediante un
+          Two-way data binding ([(ngModel)]) y (ionChange), reaccionando a la confirmación de
+          fecha del usuario -->
+    <ion-item>
+      <ion-label>Botones con feedback</ion-label>
+      <ion-datetime [showDefaultButtons]="true"
+
+                    [(ngModel)]="fechaGuardada"
+                    (ionChange)="fechaConfirmada($event)"
+                    ></ion-datetime>
+    </ion-item>
+
+  <!-- Botones de acción mediante un template referenciando directamente al componente ion-datetime
+        Permite controlar la fecha seleccionada desde el template sin necesidad de agregar lógica adicional en el archivo TS. -->
+  <ion-datetime #datetime>
+    <ion-buttons slot="buttons">
+      <ion-button color="danger" (click)="datetime.reset()">Reset</ion-button>
+      <ion-button color="primary" (click)="datetime.cancel()">Never mind</ion-button>
+      <ion-button color="primary" (click)="datetime.confirm()">All Set</ion-button>
+    </ion-buttons>
+  </ion-datetime>
+
+  </ion-list>
+</ion-content>

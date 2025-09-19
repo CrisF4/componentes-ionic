@@ -1,0 +1,18 @@
+ionic g pages/inicio --spec=false
+
+recordar siempre agregar en el @Component 'standAlone: false'
+
+<ionic-button expand ='full' routerLink="/alert"> Ir a Alert </ionic-button>
+
+action-sheet:
+<ion-header>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-back-button defaultHref="/Inicio" text="Regresar" color="primary">
+			</ion-back-button>
+		</ion-buttons>
+		<ion-tittle>action-sheet</ion-tittle>
+	</ion-toolbar>
+	
+</ion-header>
+

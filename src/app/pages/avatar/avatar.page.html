@@ -1,0 +1,37 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title color="primary">Avatar</ion-title>
+    <ion-buttons slot="end">
+      <ion-avatar>
+        <!-- img no utiliza lazy load y lo carga inmediatamente -->
+        <img src="/assets/gohan-adulto.png" />
+        <!-- ion-img utiliza lazy load -->
+        <ion-img src="/assets/gohan-adulto.png"></ion-img>
+      </ion-avatar>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <!-- outline. Chip con relleno o solo con contorno -->
+  <ion-chip color="primary" outline="true"
+            *ngFor="let item of [1,1,1,]">
+            <!-- Llama a la funcion que reproduce el audio: (click)="ionViewDidEnter()" -->
+    <ion-avatar>
+      <img src="/assets/gohan-adulto.png" />
+    </ion-avatar>
+    <ion-label>Default</ion-label>
+  </ion-chip>
+  <ion-list>
+    <ion-item *ngFor="let item of [1,1,1,1,]">
+      <ion-avatar slot="end">
+        <img src="/assets/gohan-adulto.png" />
+      </ion-avatar>
+      <ion-label>Gohan</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

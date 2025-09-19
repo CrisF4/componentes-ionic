@@ -1,0 +1,32 @@
+<app-header titulo="Grid"></app-header>
+
+<ion-content [fullscreen]="true">
+
+  <!-- Grid. Se maneja por 12 columnas, de las cuales a cada una se le puede asignar un tamaño de entre 1 a 12 según sea necesario -->
+  <!-- 'fixed' permite que el grid tenga un ancho fijo basado en el tamaño de la pantalla, agregando un padding adicional que respeta los bordes-->
+  <ion-grid fixed>
+    <ion-row>
+      <!-- Ionic adaptara el tamaño de las columnas según el contenido (si no esta especificado un size) -->
+      <!-- 'size' actuara como fallback, es decir, se aplican las que se necesitan, sino se utilizara el tamaño por defecto  -->
+      <!-- size-lg: en pantallas grandes. size-md: en pantallas medianas. size-sm: en pantallas pequeñas. -->
+      <ion-col size="12" size-lg="3" size-md="4" size-sm="6"
+               *ngFor="let n of [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]">
+
+        <ion-card>
+          <ion-img src="/assets/artorias.jpg"></ion-img>
+        </ion-card>
+
+        <ion-card-header>
+          <ion-card-subtitle>Awesome Subtitle</ion-card-subtitle>
+          <ion-card-title>Awesome Title</ion-card-title>
+        </ion-card-header>
+
+        <ion-card-content>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quis ratione consequuntur quae error in voluptatum alias provident voluptates mollitia quaerat autem debitis ea obcaecati, doloremque laudantium dolorem qui officia?
+        </ion-card-content>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
