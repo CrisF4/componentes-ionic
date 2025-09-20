@@ -10,7 +10,8 @@
     <ion-item>
       <ion-label>Fecha de nacimiento</ion-label>
                     <!-- .toISOString() sirve para convertir la fecha a un formato compatible con el ion-datetime -->
-      <ion-datetime [value]="fechaNaci.toISOString()" display-format="YYYY-MM-DD" (ionChange)="cambioFecha($event)"></ion-datetime>
+                    <!-- esta deprecado -->
+      <ion-datetime [value]="fechaNaci.toISOString()" (ionChange)="cambioFecha($event)"></ion-datetime>
     </ion-item>
 
     <ion-list-header>
@@ -18,18 +19,18 @@
     </ion-list-header>
 
     <ion-item>
-      <ion-label>Min & Max</ion-label>
-      <ion-datetime  display-format="YYYY-MM-DD" min="2000-01-01" max="2025-12-31"></ion-datetime>
+      <ion-label>Min & Max: Año-Mes-Día</ion-label>
+      <ion-datetime  min="2000-01-01" max="2025-12-31" presentation="date"></ion-datetime>
     </ion-item>
 
     <ion-item>
-      <ion-label>Años</ion-label>
-      <ion-datetime  display-format="YYYY-MM-DD" min="2000" max="2025" presentation="year"></ion-datetime>
+      <ion-label>Min & Max: Año</ion-label>
+      <ion-datetime  min="2000" max="2025" presentation="year"></ion-datetime>
     </ion-item>
 
     <ion-item>
-      <ion-label>Años</ion-label>
-      <ion-datetime  display-format="YYYY-MM-DD" min="2000-01" max="2025-12" presentation="month-year"></ion-datetime>
+      <ion-label>Min & Max: Horas-Segundos</ion-label>
+      <ion-datetime  min="2000-01-01T00:00" max="2025-12-31T23:59" presentation="time" value="2025-09-19T12:00"></ion-datetime>
     </ion-item>
 
     <!-- <ion-item>
