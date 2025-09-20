@@ -18,11 +18,6 @@ const routes: Routes = [
     path: 'avatar',
     loadChildren: () => import('./pages/avatar/avatar.module').then( m => m.AvatarPageModule)
   },
-    {
-    path: '',
-    redirectTo: 'inicio',
-    pathMatch: 'full'
-  },
   {
     path: 'button',
     loadChildren: () => import('./pages/button/button.module').then( m => m.ButtonPageModule)
@@ -54,6 +49,11 @@ const routes: Routes = [
   {
     path: 'input',
     loadChildren: () => import('./pages/input/input.module').then( m => m.InputPageModule)
+  },
+  {
+    path: '',
+    redirectTo: 'inicio',
+    pathMatch: 'full'
   },
 ];
 
