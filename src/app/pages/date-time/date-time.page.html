@@ -15,6 +15,7 @@
     </ion-item>
 
     <ion-list-header>
+      <ion-label></ion-label>
       <ion-label>Restricciones</ion-label>
     </ion-list-header>
 
@@ -24,13 +25,72 @@
     </ion-item>
 
     <ion-item>
-      <ion-label>Min & Max: Año</ion-label>
-      <ion-datetime  min="2000" max="2025" presentation="year"></ion-datetime>
+      <ion-label>Min & Max: Horas-Segundos</ion-label>
+      <ion-datetime  min="2000-01-01T00:00" max="2025-12-31T23:59" presentation="time" value="2025-09-19T12:00"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Años personalizados</ion-label>
+      <ion-datetime [yearValues]="customYearValues" presentation="date"></ion-datetime>
     </ion-item>
 
     <ion-item>
       <ion-label>Min & Max: Horas-Segundos</ion-label>
       <ion-datetime  min="2000-01-01T00:00" max="2025-12-31T23:59" presentation="time" value="2025-09-19T12:00"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Fines de semana no disponibles</ion-label>
+      <ion-datetime [isDateEnabled]="isWeekday"></ion-datetime>
+    </ion-item>
+
+    <ion-list-header>
+      <ion-label></ion-label>
+      <ion-label>Localización</ion-label>
+    </ion-list-header>
+
+    <ion-item>
+      <ion-label>Formato de fecha y hora</ion-label>
+      <ion-datetime locale="es-ES"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Formato de Horas-Segundos</ion-label>
+      <ion-datetime locale="en-GB" hourCycle="h12"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Primer día de la semana</ion-label>
+      <ion-datetime [firstDayOfWeek]="1"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Hora actual formateada</ion-label>
+      <ion-datetime locale="es-ES">
+        <span slot="time-label">Tiempo</span>
+      </ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Extensiones de hora</ion-label>
+      <ion-datetime locale="en-GB-u-hc-h12"></ion-datetime>
+    </ion-item>
+
+    <ion-list-header>
+      <ion-label></ion-label>
+      <ion-label>Titulos</ion-label>
+    </ion-list-header>
+
+    <ion-item>
+      <ion-label>Titulo predefinido</ion-label>
+      <ion-datetime [showDefaultTitle]="true"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Titulo personalizado</ion-label>
+      <ion-datetime>
+        <span slot="title">Selecciona una fecha a reservar</span>
+      </ion-datetime>
     </ion-item>
 
     <!-- <ion-item>
@@ -40,6 +100,12 @@
     </ion-item> -->
 
     <!-- Ahora se utilizan o activan los botones de forma directa en el ion-datetime -->
+
+    <ion-list-header>
+      <ion-label></ion-label>
+      <ion-label>Botones de acción</ion-label>
+    </ion-list-header>
+
     <ion-item>
       <ion-label>Botones de confirmación</ion-label>
       <ion-datetime [showDefaultButtons]="true" doneText="Hecho" cancelText="Cancelar"
@@ -59,14 +125,31 @@
     </ion-item>
 
   <!-- Botones de acción mediante un template referenciando directamente al componente ion-datetime
-        Permite controlar la fecha seleccionada desde el template sin necesidad de agregar lógica adicional en el archivo TS. -->
-  <ion-datetime #datetime>
-    <ion-buttons slot="buttons">
-      <ion-button color="danger" (click)="datetime.reset()">Reset</ion-button>
-      <ion-button color="primary" (click)="datetime.cancel()">Never mind</ion-button>
-      <ion-button color="primary" (click)="datetime.confirm()">All Set</ion-button>
-    </ion-buttons>
-  </ion-datetime>
+        Permite controlar la fecha seleccionada desde el template sin necesidad de agregar lógica adicional en el archivo TS.
+        Pueden utilizarse metodos personalizados en los botones. -->
+    <ion-datetime #datetime [(ngModel)]="fechaGuardada">
+      <ion-buttons slot="buttons">
+        <ion-button color="danger" (click)="datetime.reset()">Reset</ion-button>
+        <ion-button color="primary" (click)="datetime.cancel()">Never mind</ion-button>
+        <ion-button color="primary" (click)="datetime.confirm()">All Set</ion-button>
+        <ion-button color="secondary" (click)="fechaConfirmada1(datetime.value)">Confirmar fecha</ion-button>
+      </ion-buttons>
+    </ion-datetime>
+
+    <ion-list-header>
+      <ion-label></ion-label>
+      <ion-label>Resaltar fechas</ion-label>
+    </ion-list-header>
+
+    <ion-item>
+      <ion-label>Usando un arreglo de fechas</ion-label>
+      <ion-datetime presentation="date" value="2023-01-01" [highlightedDates]="highlightedDates"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Utilizando callback</ion-label>
+      <ion-datetime presentation="date" [highlightedDates]="highlightedDates1"></ion-datetime>
+    </ion-item>
 
   </ion-list>
 </ion-content>
