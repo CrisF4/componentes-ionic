@@ -2,7 +2,7 @@ import { DataService } from './../../services/data.service';
 import { Component, OnInit } from '@angular/core';
 import { MenuController } from '@ionic/angular';
 import { Observable } from 'rxjs';
-import { Componente } from 'src/app/interfaces/Componente';
+import { Componente } from '../../interfaces/Componente';
 
 @Component({
   selector: 'app-inicio',

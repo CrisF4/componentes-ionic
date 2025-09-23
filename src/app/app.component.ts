@@ -3,8 +3,6 @@ import { DataService } from './services/data.service';
 import { Platform } from '@ionic/angular';
 import { Observable } from 'rxjs';
 import { Componente } from './interfaces/Componente';
-// import { SplashScreen } from '@ionic-native/splash-screen/ngx';
-// import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 @Component({
   selector: 'app-root',
@@ -17,8 +15,6 @@ export class AppComponent {
 
   constructor(
     private platform: Platform,
-    // private splashScreen: SplashScreen,
-    // private statusBar: StatusBar,
     private dataService: DataService
   ) {
     this.initializeApp();
@@ -26,8 +22,6 @@ export class AppComponent {
 
   initializeApp() {
     this.platform.ready().then(() => {
-      // this.statusBar.styleDefault();
-      // this.splashScreen.hide();
       this.componentes = this.dataService.getMenuOpts();
     });
   }
