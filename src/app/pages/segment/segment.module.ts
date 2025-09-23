@@ -4,8 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { SegmentPageRoutingModule } from './segment-routing.module';
 import { SegmentPage } from './segment.page';
-import { PipesModule } from 'src/app/pipes/pipes-module';
-import { ComponentsModule } from 'src/app/components/components.module';
+import { ComponentsModule } from '../../components/components.module';
+import { PipesModule } from '../../pipes/pipes-module';
 
 @NgModule({
   imports: [

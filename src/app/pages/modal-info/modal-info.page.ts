@@ -3,7 +3,6 @@ import { IonicModule, ModalController } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
-
 @Component({
   selector: 'app-modal-info',
   templateUrl: './modal-info.page.html',

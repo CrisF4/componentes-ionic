@@ -4,8 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { ProgressPageRoutingModule } from './progress-routing.module';
 import { ProgressPage } from './progress.page';
-import { ComponentsModule } from 'src/app/components/components.module';
-
+import { ComponentsModule } from '../../components/components.module';
 
 @NgModule({
   imports: [
